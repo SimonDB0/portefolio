@@ -15,7 +15,7 @@ const ModalCV = ({ isOpen, onClose }) => {
           X
         </button>
         <iframe
-          src="/cv.pdf"
+          src="CV.pdf"
           frameBorder="0"
           style={{ width: "100%", height: "80vh" }}></iframe>
       </div>
