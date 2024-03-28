@@ -24,6 +24,19 @@ const ModalCV = ({ isOpen, onClose }) => {
 };
 
 export default function Home() {
+  function validate(formData) {
+    let tempErrors = {};
+    tempErrors.email = formData.email ? "" : "L'email est requis.";
+    tempErrors.message = formData.message ? "" : "Le message est requis.";
+
+    if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
+      tempErrors.email = "L'email est invalide.";
+    }
+
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).every((x) => !tempErrors[x]);
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = {
